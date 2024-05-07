@@ -17,7 +17,7 @@ $address_line2 = $_POST["address_line2"];
 $city_id = $_POST["city_id"];
 $district_id = $_POST["district_id"];
 $province_id = $_POST["province_id"];
-
+//lkl
 if (empty($first_name) || $first_name == 0) {
     echo ("Please enter first name.");
 } else if (empty($last_name) || $last_name == 0) {
