@@ -10,23 +10,16 @@ require_once "./views/partials/nav.php";
   }
 ?>
 
-<div class="w-[95%] mx-4  my-4 flex flex-row items-center">
-        <p class="sm:text-xl sm:text-center text-base md:ms-6">Manage Admins</p>
-        <!-- search bar -->
-        <div id="searchForm" class="flex xl:w-[70%] lg:max-w-[50%] lg:min-w-[40%] sm:w-[70%] gap-2 items-center mx-10">
-    <input type="text" id="searchInput" placeholder="Search by name or email"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2 outline-none" required />
-</div>
-<a href="/admin/add-admins">
+<div class="w-[95%] mx-4  my-4 flex flex-row items-center justify-between">
+        <p class="sm:text-xl sm:text-center text-base md:ms-6">Manage Staffs</p>
+        <a href="/admin/add-staffs">
         <button type="submit" class="inline-flex items-center py-2 px-2 ms-1 text-sm font-medium text-white bg-yellow-500 gap-1 rounded-lg border border-yellow-600 hover:bg-yellow-600">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
   <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
 </svg></svg>Add <span class="md:block hidden">New</span>
                 </button>
         </a>
-        <!-- search bar -->
 </div>
-
-<!-- product table start -->
 <div class="flex flex-col mt-5">
     <div class="-my-2 overflow-x-auto sm:-mx-4 md:-mx-6 lg:mx-1">
         <div class="py-1 align-middle inline-block min-w-full sm:px-4 md:px-6 lg:px-8">
@@ -39,30 +32,15 @@ require_once "./views/partials/nav.php";
                             <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Username </th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Email </th>
-                            <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Position </th>
-                            <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Registered Date </th>
-                            <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">  </th>
+                            <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Occupation </th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">  </th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 <?php 
 require_once "./views/partials/alert.php";
-$AllUsers_rs = Database::search("SELECT COUNT(`email`) FROM `administrators`");
-$AllUsers = $AllUsers_rs->fetch_assoc();
-if($AllUsers_rs->num_rows){
-    $output = preg_replace( '/[^0-9]/', '', $pageId );
-    if($output){
-      $pageId = $pageId-1;
-      $from = 0;
-      $to = 10;
-      $from = $to * $pageId;
-    }else{
-      $from = 0;
-    $to = 10;
-    }
 
-$manageResult = Database::search("SELECT * FROM `administrators`");
+$manageResult = Database::search("SELECT * FROM `user` INNER JOIN `positions` ON `positions`.`id`=`user`.`positions_id` WHERE `positions_id`!='1'");
 if($manageResult->num_rows!==0){
     for ($i=0; $i < $manageResult->num_rows; $i++) { 
         $manageUsers= $manageResult->fetch_assoc();
@@ -94,19 +72,8 @@ if($manageResult->num_rows!==0){
     <td id="email" class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["username"]?></td>
     <td id="email" class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["email"]?></td>
                                 <td class="px-3 py-2 text-center whitespace-nowrap text-sm text-white"><div class="bg-red-500 text-center rounded-md p-1">
-                                <?php
-                               $adminPosition_rs =  Database::search("SELECT * FROM `positions` WHERE `id`='".$manageUsers["id"]."'");
-                               $adminPosition = $adminPosition_rs->fetch_assoc();
-                               echo $adminPosition["position"];?>
+                                <?= $manageUsers["position"]?>
                                 </div></td>
-                                <td class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-500"><?= $manageUsers["mobile_number"]?></td>
-                                <td class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-500">
-                                    <button onclick="editAdmin('<?= $manageUsers['id'] ?>');">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 hover:text-green-600 transform  h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-</svg>
-                                </button>
-</td>
 <td class="px-3 py-2 text-center whitespace-nowrap  text-sm font-medium flex items-center justify-center">
                              <button onclick="deleteAdmin('<?= $manageUsers['id'] ?>');">
                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  hover:text-red-600 transform">
@@ -120,21 +87,11 @@ if($manageResult->num_rows!==0){
     ?> <!-- More people... -->
        </tbody>
           </table>
-         <?php require_once "./views/partials/pagination.php";
-          pagination($AllAdmins['COUNT(`email`)'],"manageAdminsPagination");
-}else{
-    ?>
-    <script>window.location.href = "/manageAdmins?id=1"</script><?php
-}
-
-}
-                ?>
+         <?php } ?>
             </div>
         </div>
     </div>
 </div>
-<!-- product table start -->
-
 <div>
     
 </div>

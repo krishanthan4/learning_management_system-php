@@ -1,7 +1,6 @@
 <?php require_once "./views/partials/header.php";
-if (isset($_SESSION["admin_lms"])) {
-    
-require_once "./views/partials/nav.php";
+// if(isset($_SESSION["admin"])){
+require_once "./views/partials/academic_nav.php";
 
  if(isset($_GET["id"])){
     $pageId =$_GET["id"]; 
@@ -11,8 +10,17 @@ require_once "./views/partials/nav.php";
   }
 ?>
 
-<div class="w-[95%] mx-4  my-4 flex flex-row items-center">
+<div class="w-[95%] mx-4  my-4 flex flex-row items-center justify-between">
         <p class="sm:text-xl sm:text-center text-base md:ms-6">Manage Students</p>
+    
+<a href="/admin/add-students">
+        <button type="submit" class="inline-flex items-center py-2 px-2 ms-1 text-sm font-medium text-white bg-yellow-500 gap-1 rounded-lg border border-yellow-600 hover:bg-yellow-600">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+</svg></svg>Add <span class="md:block hidden">New</span>
+                </button>
+        </a>
+        <!-- search bar -->
 </div>
 
 <!-- product table start -->
@@ -105,5 +113,4 @@ if($manageStudents_rs->num_rows!==0){
 <div>
     
 </div>
-<?php }else { ?><script> window.location = "/admin/signin";</script><?php }
- require_once "./views/partials/footer.php";?>
+<?php require_once "./views/partials/footer.php";?>

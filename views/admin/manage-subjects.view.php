@@ -1,6 +1,8 @@
 <?php require_once "./views/partials/header.php";
  require_once "./views/partials/nav.php";
+ if (isset($_SESSION["admin_lms"])) {
 
+    $email = $_SESSION["admin_lms"]["email"];
  if(isset($_GET["id"])){
     $pageId =$_GET["id"]; 
   
@@ -9,12 +11,8 @@
   }
 ?>
 
-<div class="w-[95%] mx-4  my-4 flex flex-row items-center">
+<div class="w-[95%] mx-4  my-4 flex flex-row items-center justify-between">
         <p class="sm:text-xl sm:text-center text-base md:ms-3">Manage Subjects</p>
-        <!-- search bar -->
-        <div id="searchForm" class="flex xl:w-[70%] lg:max-w-[50%] lg:min-w-[40%] sm:w-[70%] gap-2 items-center mx-10">
-    <input type="text" id="searchInput" placeholder="Search by name or email"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2 outline-none" required />
-</div>
 <a href="/admin/add-subjects">
         <button type="submit" class="inline-flex items-center py-2 px-2 ms-1 text-sm font-medium text-white bg-yellow-500 gap-1 rounded-lg border border-yellow-600 hover:bg-yellow-600">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
@@ -50,7 +48,7 @@ for ($sj=0; $sj < $subject_rs->num_rows; $sj++) {
 for ($gd=0; $gd < $grade_rs->num_rows; $gd++) { 
   $grade = $grade_rs->fetch_assoc();
     ?>
-    <option value="<?= $grade["grade"] ?>"><?= $grade["grade"] ?></option>
+    <option value="<?= $grade["name"] ?>"><?= $grade["name"] ?></option>
     <?php } ?>
 </select>
 </div>
@@ -98,12 +96,7 @@ if($manageSubject_rs->num_rows!==0){
     ?> <!-- More people... -->
        </tbody>
           </table>
-         <?php 
-}else{
-    ?>
-    <script>window.location.href = "/manageUsers?id=1"</script><?php
-}
-                ?>
+         <?php } ?>
             </div>
         </div>
     </div>
@@ -111,6 +104,7 @@ if($manageSubject_rs->num_rows!==0){
 <!-- product table start -->
 
 <script src="./public/js/manageUsers.js"></script>
-<?php require_once "./views/partials/footer.php";
+<?php }else { ?><script> window.location = "/admin/signin";</script><?php }
+require_once "./views/partials/footer.php";
 
 ?>

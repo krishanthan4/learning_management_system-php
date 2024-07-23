@@ -16,7 +16,7 @@ function signIn() {
         contentType: false,
         success: function(responseData) {
             if (responseData.trim() === "success") {
-                window.location.href = "/";
+                window.location.href = "/admin";
             } else {
                 $("#msgToast").removeClass("hidden");
                 $("#msg").html(responseData);
@@ -30,3 +30,4 @@ function signIn() {
         }
     });
 }
+

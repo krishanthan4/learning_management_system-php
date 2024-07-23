@@ -27,8 +27,8 @@ require_once "./views/partials/nav.php"; ?>
                         <option>Select</option>
                         <?php for ($posi = 0; $posi < $grade_from_rs->num_rows; $posi++) {
                           $grade_from_data = $grade_from_rs->fetch_assoc(); ?>
-                          <option value="<?= $grade_from_data["grade"]; ?>">
-                            <?= $grade_from_data["grade"]; ?>
+                          <option value="<?= $grade_from_data["name"]; ?>">
+                            <?= $grade_from_data["name"]; ?>
                           </option>
                           <?php }?>
                       </select>
@@ -41,8 +41,8 @@ require_once "./views/partials/nav.php"; ?>
                         <option>Select</option>
                         <?php for ($posi2 = 0; $posi2 < $grade_to_rs->num_rows; $posi2++) {
                           $grade_to_data = $grade_to_rs->fetch_assoc(); ?>
-                          <option value="<?= $grade_to_data["grade"]; ?>">
-                            <?= $grade_to_data["grade"]; ?>
+                          <option value="<?= $grade_to_data["name"]; ?>">
+                            <?= $grade_to_data["name"]; ?>
                           </option>
                           <?php } ?>
                       </select>

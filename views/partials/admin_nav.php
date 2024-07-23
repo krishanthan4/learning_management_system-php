@@ -1,10 +1,4 @@
-<!-- Mobile Menu start -->
 <div id="MobileMenublack">
-  <!--
-      Mobile menu
-
-      Off-canvas menu for mobile, show/hide based on off-canvas menu state.
-    -->
   <div class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
 
     <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
@@ -39,7 +33,9 @@
         <div class="flow-root">
           <a href="/manage-academic-officers" class="-m-2 p-2 block font-medium text-gray-900">Manage academic officers</a>
         </div>
-  
+        <div class="flow-root">
+          <a href="/add-users" class="-m-2 p-2 block font-medium text-gray-900">Add Users</a>
+        </div>
         </div>
  
         <!-- Account -->
@@ -130,6 +126,8 @@
                   class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Manage Admins</a>
                   <a href="/admin/manage-teachers"
                   class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Manage Teachers</a>
+                  <a href="/admin/add-users"
+                  class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Add Users</a>
                 <a href="/admin/manage-students"
                   class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Manage Students</a>
                 <a href="/admin/manage-academic-officers"

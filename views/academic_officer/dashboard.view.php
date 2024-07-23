@@ -1,9 +1,10 @@
-<?php require_once "./views/partials/header.php";
+<?php
 require_once "connection.php";
+require_once "./views/partials/header.php";
+if (isset($_SESSION["academic_lms"])) {
 
-if (isset($_SESSION["admin_lms"])) {
 
-  require_once "./views/partials/nav.php"; ?>
+  require_once "./views/partials/academic_nav.php"; ?>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
   <div class="text-blueGray-700 antialiased w-full">
     <?php $student_rs = Database::search("SELECT COUNT(`email`) AS student_count FROM `student`");
@@ -65,30 +66,7 @@ if (isset($_SESSION["admin_lms"])) {
                     </div>
                   </div>
 </a>
-                <a href="/admin/manage-academic-officers" class="w-full lg:w-6/12 xl:w-3/12  px-4">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
-                    <div class="flex-auto p-4">
-                      <div class="flex flex-wrap">
-                        <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                          <h5 class="text-gray-800 uppercase font-bold text-xs">
-                            Academic Officers
-                          </h5>
-                          <span class="font-semibold text-xl text-blueGray-700">
-                            <?= $academic_officers["academic_officers_count"] ?> Academic Officers
-                          </span>
-                        </div>
-                        <div class="relative w-auto pl-4 flex-initial">
-                          <div
-                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-pink-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m7.875 14.25 1.214 1.942a2.25 2.25 0 0 0 1.908 1.058h2.006c.776 0 1.497-.4 1.908-1.058l1.214-1.942M2.41 9h4.636a2.25 2.25 0 0 1 1.872 1.002l.164.246a2.25 2.25 0 0 0 1.872 1.002h2.092a2.25 2.25 0 0 0 1.872-1.002l.164-.246A2.25 2.25 0 0 1 16.954 9h4.636M2.41 9a2.25 2.25 0 0 0-.16.832V12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 12V9.832c0-.287-.055-.57-.16-.832M2.41 9a2.25 2.25 0 0 1 .382-.632l3.285-3.832a2.25 2.25 0 0 1 1.708-.786h8.43c.657 0 1.281.287 1.709.786l3.284 3.832c.163.19.291.404.382.632M4.5 20.25h15A2.25 2.25 0 0 0 21.75 18v-2.625c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125V18a2.25 2.25 0 0 0 2.25 2.25Z" />
-</svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-</a>
+         
                 <a href="/manageCategory" class="w-full lg:w-6/12 xl:w-3/12  px-4">
                   <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                     <div class="flex-auto p-4">
@@ -118,5 +96,8 @@ if (isset($_SESSION["admin_lms"])) {
 
      
   </div>
-  <?php }else { ?><script> window.location = "/admin/signin";</script><?php }
-  require_once "./views/partials/footer.php"; ?>
+
+
+
+  <?php require_once "./views/partials/footer.php"; 
+}else{?><script>window.location.href="/academic-officer/signin"</script><?php } ?>

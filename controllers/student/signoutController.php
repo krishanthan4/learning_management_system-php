@@ -2,9 +2,9 @@
 
 session_start();
 
-if(isset($_SESSION["admin_lms"])){
+if(isset($_SESSION["student_lms"])){
 
-    $_SESSION["admin_lms"] = null;
+    $_SESSION["student_lms"] = null;
     session_destroy();
 
     echo ("success");

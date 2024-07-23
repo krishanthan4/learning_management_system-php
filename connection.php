@@ -6,7 +6,7 @@ class Database{
 
     public static function setUpConnection(){
         if(!isset(Database::$connection)){
-            Database::$connection = new mysqli("localhost", "root", "Abcd!234", "learning_management_system", "3306");
+            Database::$connection = new mysqli("localhost", "root", "Abcd!234", "lms_php", "3306");
         }
     }
 
