@@ -1,18 +1,14 @@
 <?php require_once "./views/partials/header.php";
 // if(isset($_SESSION["admin"])){
 require_once "./views/partials/academic_nav.php";
-
  if(isset($_GET["id"])){
     $pageId =$_GET["id"]; 
-  
   }else{
     $pageId =1; 
   }
 ?>
-
 <div class="w-[95%] mx-4  my-4 flex flex-row items-center justify-between">
         <p class="sm:text-xl sm:text-center text-base md:ms-6">Manage Students</p>
-    
 <a href="/admin/add-students">
         <button type="submit" class="inline-flex items-center py-2 px-2 ms-1 text-sm font-medium text-white bg-yellow-500 gap-1 rounded-lg border border-yellow-600 hover:bg-yellow-600">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
@@ -22,7 +18,6 @@ require_once "./views/partials/academic_nav.php";
         </a>
         <!-- search bar -->
 </div>
-
 <!-- product table start -->
 <div class="flex flex-col mt-5">
     <div class="-my-2 overflow-x-auto sm:-mx-4 md:-mx-6 lg:mx-1">
@@ -39,7 +34,6 @@ require_once "./views/partials/academic_nav.php";
                             <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider"> Email </th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider"> Registered Date </th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-                         
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -58,17 +52,14 @@ if($AllStudents_rs->num_rows){
       $from = 0;
     $to = 10;
     }
-
 $manageStudents_rs = Database::search("SELECT * FROM `student` INNER JOIN `class` WHERE `class`.`id`=`student`.`class_id` LIMIT $from,$to");
 if($manageStudents_rs->num_rows!==0){
     for ($i=0; $i < $manageStudents_rs->num_rows; $i++) { 
         $manageStudents= $manageStudents_rs->fetch_assoc();
     ?>
-    
     <tr id="<?= $manageStudents["email"]?>">
                             <td class="px-3 py-2 text-center whitespace-nowrap">
                                     <div class="text-sm text-gray-900"><?= $i+1?></div>
-                                
                                 </td>    
                                 <?php 
                                 if($manageStudents["first_name"]!==null || $manageStudents["last_name"]!==null){
@@ -84,7 +75,6 @@ if($manageStudents_rs->num_rows!==0){
                                      </td>
                                   <?php
                                 }
-                                
                                 ?>
     <td id="email" class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-900"><?= $manageStudents["username"]?></td>
                                 <td class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-500"><?= $manageStudents["grade_id"] ." - ".$manageStudents["class_name"] ?></td>
@@ -109,8 +99,6 @@ if($manageStudents_rs->num_rows!==0){
     </div>
 </div>
 <!-- product table start -->
-
 <div>
-    
 </div>
 <?php require_once "./views/partials/footer.php";?>

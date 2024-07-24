@@ -2,12 +2,10 @@ function signIn() {
     const email = $("#email").val();
     const password = $("#password").val();
     const rememberMe = $("#rememberMe").is(":checked") ? "true" : "false";
-    
     const formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
     formData.append("rememberMe", rememberMe);
-
     $.ajax({
         url: "/controllers/admin/signInController.php",
         type: "POST",
@@ -30,4 +28,3 @@ function signIn() {
         }
     });
 }
-

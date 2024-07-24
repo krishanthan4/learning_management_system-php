@@ -1,16 +1,13 @@
 <?php require_once "./views/partials/header.php";
  require_once "./views/partials/nav.php";
  if (isset($_SESSION["admin_lms"])) {
-
     $email = $_SESSION["admin_lms"]["email"];
  if(isset($_GET["id"])){
     $pageId =$_GET["id"]; 
-  
   }else{
     $pageId =1; 
   }
 ?>
-
 <div class="w-[95%] mx-4  my-4 flex flex-row items-center justify-between">
         <p class="sm:text-xl sm:text-center text-base md:ms-3">Manage Subjects</p>
 <a href="/admin/add-subjects">
@@ -22,9 +19,7 @@
         </a>
         <!-- search bar -->
 </div>
-
 <div class="px-10 flex flex-col md:flex-row justify-evenly items-center  gap-10 py-10">
-
 <div class="flex items-center gap-2">
     <label for="">Subject Name : </label>
     <select name="Subject Name"  class="outline-none px-2 rounded-md border border-gray-300 bg-gray-100 py-1 " id="">
@@ -38,7 +33,6 @@ for ($sj=0; $sj < $subject_rs->num_rows; $sj++) {
     <?php } ?>
 </select>
 </div>
-
 <div class="flex items-center gap-2">
     <label for="">Grade : </label>
     <select name="Subject Name" class="outline-none px-2 rounded-md border border-gray-300 bg-gray-100 py-1 " id="">
@@ -65,7 +59,6 @@ for ($gd=0; $gd < $grade_rs->num_rows; $gd++) {
                             <th scope="col" class="px-4 md:px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Subject Name</th>
                             <th scope="col" class="px-4 md:px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Grade From</th>
                             <th scope="col" class="px-4 md:px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Grade To</th>
-     
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -75,21 +68,16 @@ if($manageSubject_rs->num_rows!==0){
     for ($i=0; $i < $manageSubject_rs->num_rows; $i++) { 
         $manageSubjects= $manageSubject_rs->fetch_assoc();
     ?>
-    
     <tr>
-                       
                                 <td class="px-3 py-2 text-center whitespace-nowrap">
                                 <?= $manageSubjects["subject"]?>
                                 </td>
-    
-             
                                     <td class="px-3 py-2 text-center whitespace-nowrap">
                                  <div class="text-sm ps-10 text-gray-900"><?= $manageSubjects["grade_from"]?></div> 
                                      </td>
                                      <td class="px-3 py-2 text-center whitespace-nowrap">
                                  <div class="text-sm ps-10 text-gray-900"><?= $manageSubjects["grade_to"]?></div> 
                                      </td>
-                            
                             </tr>
     <?php
     }
@@ -102,9 +90,7 @@ if($manageSubject_rs->num_rows!==0){
     </div>
 </div>
 <!-- product table start -->
-
 <script src="./public/js/manageUsers.js"></script>
 <?php }else { ?><script> window.location = "/admin/signin";</script><?php }
 require_once "./views/partials/footer.php";
-
 ?>

@@ -1,6 +1,5 @@
 <?php require_once "./views/partials/header.php";
 require_once "connection.php";
-
 if (isset($_SESSION["student_lms"])) {
   require_once "./views/partials/student_nav.php"; ?>
 <div>
@@ -17,20 +16,18 @@ if (isset($_SESSION["student_lms"])) {
                             <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider">Assignment ID</th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider">Assignment Subject</th>
                             <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-                            <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                            <th scope="col" class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider">Upload</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 <?php 
 require_once "./views/partials/alert.php";
-
 $grade_id ;
 $assignments_rs = Database::search("SELECT * FROM `assignment` INNER JOIN `subject` ON `subject`.`id`=`assignment`.`subject_id`");
 if($assignments_rs->num_rows!==0){
     for ($i=0; $i < $assignments_rs->num_rows; $i++) { 
         $assignments_= $assignments_rs->fetch_assoc();
     ?>
-    
     <tr id="<?= $assignments_["id"]?>">
                             <td class="px-3 py-2 text-center whitespace-nowrap">
                                     <div class="text-sm text-gray-900"><?= $assignments_["id"]?></div>

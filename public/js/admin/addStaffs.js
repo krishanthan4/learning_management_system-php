@@ -1,5 +1,4 @@
 function addStaffs() {
-
     const request = new XMLHttpRequest();
     const form = new FormData();
     form.append("firstname",document.getElementById("firstname").value);
@@ -12,12 +11,8 @@ function addStaffs() {
 request.onreadystatechange= ()=>{
 if(request.readyState==4 && request.status==200){
 if(request.responseText=="success"){
-
-    
 }
 }
-
-
     }
     alert("hello");
 }

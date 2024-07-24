@@ -1,8 +1,6 @@
 <?php 
 require_once "./routes/router.php";
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +9,5 @@ require_once "./routes/router.php";
     <title>Document</title>
 </head>
 <body>
-    
 </body>
 </html>

@@ -1,5 +1,4 @@
 async function updateProfile() {
-
     const firstName = document.getElementById("fname").value;
     const lastName = document.getElementById("lname").value;
     const mobile = document.getElementById("mobile").value;
@@ -23,7 +22,6 @@ async function updateProfile() {
     formData.append("city", city);
     formData.append("pcode", pcode);
     formData.append("image", image);
-
     try {
         const response = await fetch("/processes/updateProfileProcess.php", {
             method: "POST",
@@ -38,12 +36,10 @@ async function updateProfile() {
                     document.getElementById("msgToast").classList.add("hidden");
                 }, 2500);
             }
-
         } else {
             throw new Error("Network response was not ok.");
         }
     } catch (error) {
         console.error("Fetch error:", error);
     }
-
 }

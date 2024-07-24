@@ -1,14 +1,11 @@
 function editAdmin(id) {
   window.location.href="./edit-admins?id="+id;
 }
-
 function deleteAdmin(id) {
   // alert(id);
-
   const request = new XMLHttpRequest();
   const form = new FormData();
   form.append("admin_id", id);
-
   request.onreadystatechange = () => {
     if (request.status == 200 && request.readyState == 4) {
       if (request.responseText == "success") {
@@ -25,7 +22,6 @@ function deleteAdmin(id) {
           "Something Went wrong";
           setTimeout(() => {
             document.getElementById("msgToast").classList.add("hidden");
-        
           }, 2000);
       }
     }

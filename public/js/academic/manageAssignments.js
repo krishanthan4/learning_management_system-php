@@ -34,9 +34,7 @@ alert("The Marks Are Assigned Already !");
     request.send(form);
   }
 }
-
 function sentToStudent(email,id){
-  
       const request = new XMLHttpRequest();
       const form = new FormData();
       form.append("student_email", email);

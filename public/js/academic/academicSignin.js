@@ -2,7 +2,6 @@ function academic_signup() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const verification_code = document.getElementById("verification_code").value;
-
     if (!username) {
         alert("Please Enter the Username");
     } else if (!password) {
@@ -15,7 +14,6 @@ function academic_signup() {
         form.append("username", username);
         form.append("password", password);
         form.append("verification_code", verification_code);
-
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
                 if (request.responseText == "success") {
@@ -25,17 +23,13 @@ function academic_signup() {
                 }
             }
         };
-
         request.open("POST", "/controllers/academic/academic_signupController.php", true);
         request.send(form);
     }
 }
-
 function academic_signIn(){
-
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
     if (!username) {
         alert("Please Enter the Username");
     } else if (!password) {
@@ -45,7 +39,6 @@ function academic_signIn(){
         const form = new FormData();
         form.append("username", username);
         form.append("password", password);
-
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
                 if (request.responseText == "success") {
@@ -55,7 +48,6 @@ function academic_signIn(){
                 }
             }
         };
-
         request.open("POST", "/controllers/academic/academic_signinController.php", true);
         request.send(form);
     }

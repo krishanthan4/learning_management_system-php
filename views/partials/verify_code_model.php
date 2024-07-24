@@ -3,16 +3,10 @@
                     <div class="bg-white rounded-xl shadow-lg p-7">
                         <div class="text-center">
                             <h1 class="block text-2xl font-bold text-gray-800 dark:text-black">Verify You!</h1>
-                    
                         </div>
-
-
                         <div class="mt-5">
                                 <div class="grid gap-y-4">
                                     <div>
-                                     
-
-
                                         <div class="col-span-12 mt-2 ">
                                             <label
                                                 class="block text-sm font-medium leading-6 text-gray-900">Verification
@@ -20,7 +14,6 @@
                                             <input type="text" id="verification_code"
                                                 class="block pl-2 w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         </div>
-
                                     </div>
                                     <div class="flex gap-2 mt-2">
                                         <div class="w-3/4">
@@ -34,7 +27,6 @@
                                                 data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
-
                                 </div>
                         </div>
                     </div>

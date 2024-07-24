@@ -1,6 +1,4 @@
 async function editAdministrator(admin_id) {
-
-
     const first_name = document.getElementById("fname").value;
     const last_name = document.getElementById("lname").value;
     const mobile_number = document.getElementById("mobile_number").value;
@@ -12,7 +10,6 @@ async function editAdministrator(admin_id) {
     const city = document.getElementById("city").value;
     const username = document.getElementById("username").value;
     const position = document.getElementById("position").value;
-    
     const formData = new FormData();
     formData.append("admin_id",admin_id);
     formData.append("first_name",first_name);
@@ -26,7 +23,6 @@ async function editAdministrator(admin_id) {
     formData.append("city", city);
     formData.append("username", username);
     formData.append("position", position);
-
     try {
         const response = await fetch ("/controllers/editAdminController.php", {
             method: "POST",
@@ -51,12 +47,10 @@ async function editAdministrator(admin_id) {
                     document.getElementById("msgToast").classList.add("hidden");
                 }, 2500);
             }
-
         }else{
             throw new Error("Network response was not ok.");
         }
     } catch (error) {
         console.error("Fetch error:", error);
     }
-
 }

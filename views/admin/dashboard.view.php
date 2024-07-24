@@ -1,8 +1,6 @@
 <?php require_once "./views/partials/header.php";
 require_once "connection.php";
-
 if (isset($_SESSION["admin_lms"])) {
-
   require_once "./views/partials/nav.php"; ?>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
   <div class="text-blueGray-700 antialiased w-full">
@@ -115,8 +113,6 @@ if (isset($_SESSION["admin_lms"])) {
 </a>
               </div>
         </div>
-
-     
   </div>
   <?php }else { ?><script> window.location = "/admin/signin";</script><?php }
   require_once "./views/partials/footer.php"; ?>

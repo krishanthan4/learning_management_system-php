@@ -1,11 +1,8 @@
 <?php
 session_start();
-
 require_once "../../connection.php";
-
 $email = $_POST["email"];
 $password = $_POST["password"];
-
 if (empty($email)) {
     echo "Please Enter Your email";
 } else if (empty($password)) {

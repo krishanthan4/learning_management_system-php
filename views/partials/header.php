@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" class="h-full bg-white">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +10,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
   <body class="h-full">
-
   <?php
   require_once "connection.php";
   session_start();?>
-
-  

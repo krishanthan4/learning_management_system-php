@@ -25,7 +25,6 @@
     document.getElementById(dropdownID).classList.toggle("hidden");
     document.getElementById(dropdownID).classList.toggle("block");
   }
-
   (function () {
     /* Chart initialisations */
     /* Line Chart */
@@ -131,7 +130,6 @@
     };
     var ctx = document.getElementById("line-chart").getContext("2d");
     window.myLine = new Chart(ctx, config);
-
     /* Bar Chart */
     config = {
       type: "bar",

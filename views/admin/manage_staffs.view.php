@@ -1,15 +1,12 @@
 <?php require_once "./views/partials/header.php";
 // if(isset($_SESSION["admin"])){
 require_once "./views/partials/nav.php";
-
  if(isset($_GET["id"])){
     $pageId =$_GET["id"]; 
-  
   }else{
     $pageId =1; 
   }
 ?>
-
 <div class="w-[95%] mx-4  my-4 flex flex-row items-center justify-between">
         <p class="sm:text-xl sm:text-center text-base md:ms-6">Manage Staffs</p>
         <a href="/admin/add-staffs">
@@ -39,19 +36,15 @@ require_once "./views/partials/nav.php";
                     <tbody class="bg-white divide-y divide-gray-200">
 <?php 
 require_once "./views/partials/alert.php";
-
 $manageResult = Database::search("SELECT * FROM `user` INNER JOIN `positions` ON `positions`.`id`=`user`.`positions_id` WHERE `positions_id`!='1'");
 if($manageResult->num_rows!==0){
     for ($i=0; $i < $manageResult->num_rows; $i++) { 
         $manageUsers= $manageResult->fetch_assoc();
     ?>
-    
     <tr id="<?= $manageUsers["id"]?>">
                             <td class="px-3 py-2 text-center whitespace-nowrap">
                                     <div class="text-sm text-gray-900"><?= $i+1?></div>
-                                
                                 </td>
-    
                                 <?php 
                                 if($manageUsers["first_name"]==!null || $manageUsers["last_name"]){
     ?>
@@ -66,9 +59,7 @@ if($manageResult->num_rows!==0){
                                      </td>
                                   <?php
                                 }
-                                
                                 ?>
-    
     <td id="email" class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["username"]?></td>
     <td id="email" class="px-3 py-2 text-center whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["email"]?></td>
                                 <td class="px-3 py-2 text-center whitespace-nowrap text-sm text-white"><div class="bg-red-500 text-center rounded-md p-1">
@@ -93,7 +84,6 @@ if($manageResult->num_rows!==0){
     </div>
 </div>
 <div>
-    
 </div>
 <script src="./public/js/manageAdmins.js"></script>
 <?php require_once "./views/partials/footer.php";?>

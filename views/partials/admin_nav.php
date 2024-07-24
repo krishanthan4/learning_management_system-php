@@ -1,8 +1,6 @@
 <div id="MobileMenublack">
   <div class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
-
     <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
-
     <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto" id="MobileMenu">
       <div class="px-4 pt-5 pb-2 flex">
         <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
@@ -15,7 +13,6 @@
           </svg>
         </button>
       </div>
-
       <div class="border-t border-gray-200 py-6 text-center space-y-6">
         <div class="flow-root">
           <a href="/admin" class="-m-2 p-2 block font-medium text-gray-900">Dashboard</a>
@@ -26,7 +23,6 @@
         <div class="flow-root">
           <a href="/manage-teachers" class="-m-2 p-2 block font-medium text-gray-900">Manage Teachers</a>
         </div>
-      
       <div class="flow-root">
         <a href="/manage-students" class="-m-2 p-2 block font-medium text-gray-900">Manage Students</a>
       </div>
@@ -37,7 +33,6 @@
           <a href="/add-users" class="-m-2 p-2 block font-medium text-gray-900">Add Users</a>
         </div>
         </div>
- 
         <!-- Account -->
         <a href="#" class="p-2 text-gray-400 flex flex-row justify-center border border-300 hover:text-gray-500 lg:ml-4">
           <span class="sr-only">Account</span>
@@ -48,9 +43,6 @@
               d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </a>
-  
-
-
       <div class="border-t text-center border-gray-200 py-6 px-4 space-y-6">
         <!-- Currency selector -->
         <form>
@@ -60,13 +52,9 @@
               <select id="mobile-currency" name="currency"
                 class="bg-none border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-gray-700 group-hover:text-gray-800 focus:outline-none focus:ring-0 focus:border-transparent">
                 <option>CAD</option>
-
                 <option>USD</option>
-
                 <option>AUD</option>
-
                 <option>EUR</option>
-
                 <option>GBP</option>
               </select>
               <div class="absolute right-0 inset-y-0 flex items-center pointer-events-none">
@@ -82,16 +70,12 @@
       </div>
     </div>
   </div>
-
 </div>
-
 <?php
 //   if($_SESSION["u"]){
 ?>
-
 <!-- Header and big dropdown start -->
 <header class="relative bg-white">
-
   <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="border-b border-gray-200">
       <div class="h-16 flex items-center">
@@ -104,7 +88,6 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-
         <!-- Logo -->
         <div class="ml-4 flex lg:ml-0">
           <a href="#">
@@ -113,7 +96,6 @@
               alt="">
           </a>
         </div>
-
         <!-- Flyout menus -->
         <div class="hidden lg:ml-8 lg:block lg:self-stretch">
           <div class="h-full flex space-x-8">
@@ -138,9 +120,7 @@
             </div>
           </div>
         </div>
-
         <div class="ml-auto flex items-center">
-       
             <!-- Account -->
             <a href="#" class="p-2 text-gray-400 rounded-md border border-gray-300 hover:text-gray-500 ">
               <span class="sr-only">Account</span>
@@ -151,10 +131,6 @@
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </a>
-          
-
-
-
         </div>
       </div>
     </div>
@@ -163,15 +139,11 @@
 <?php
 //   }else{
 ?>
-
 <?php
 //   }
-
 ?>
-
 <div class="mx-4 md:mx-12 my-3">
   <div class="w-full flex flex-row items-center">
-
     <!-- search bar -->
     <div class="flex md:w-[65%] my-2 min-w-full me-5 md:me-0 flex-row items-center justify-center">
       <form class="flex w-full items-center max-w-lg mx-auto">
@@ -192,5 +164,4 @@
     </div>
   </div>
 </div>
-
 <script src="./public/js/nav.js"></script>

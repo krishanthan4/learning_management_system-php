@@ -5,7 +5,6 @@ function showVerifyCodeModal() {
   backdrop.classList.remove("hidden");
   document.body.classList.add("overflow-hidden");
 }
-
 function hideVerifyCodeModal() {
   var modal = document.getElementById("verifyCodeModal");
   var backdrop = document.getElementById("modal-backdrop");
@@ -13,7 +12,6 @@ function hideVerifyCodeModal() {
   backdrop.classList.add("hidden");
   document.body.classList.remove("overflow-hidden");
 }
-
 async function forgotPassword() {
   const email = document.getElementById("email").value;
   try {
@@ -47,10 +45,8 @@ async function forgotPassword() {
   }
 }
 let email_global = "";
-
 function verifyCode() {
   const email = document.getElementById("email").value;
-
   email_global = email;
   const verification_code = document.getElementById("verification_code").value;
   const request = new XMLHttpRequest();
@@ -82,14 +78,11 @@ function verifyCode() {
   request.open("POST", "./controllers/admin/verifyCode2Controller.php", true);
   request.send(form);
 }
-
 function openForgotPasswordModel() {
   document.getElementById("verifyCodeModal").classList.add("hidden");
   document.getElementById("fpmodal").classList.remove("hidden");
 }
-
 // forgotpassword
-
 function showForgotPasswordModal() {
   var modal = document.getElementById("fpmodal");
   var backdrop = document.getElementById("modal-backdrop");
@@ -97,7 +90,6 @@ function showForgotPasswordModal() {
   backdrop.classList.remove("hidden");
   document.body.classList.add("overflow-hidden");
 }
-
 function hideForgotPasswordModal() {
   var modal = document.getElementById("fpmodal");
   var backdrop = document.getElementById("modal-backdrop");
@@ -113,7 +105,6 @@ function resetPassword() {
     "type_retype_password"
   ).value;
   const request = new XMLHttpRequest();
-
   if (type_email && type_password && type_retype_password) {
     const form = new FormData();
     form.append("email", type_email);
@@ -124,7 +115,6 @@ function resetPassword() {
         if (request.responseText == "success") {
           document.getElementById("fpmodal").classList.add("hidden");
           document.getElementById("modal-backdrop").classList.add("hidden");
-
           document.getElementById("msgToast").classList.remove("hidden");
           document.getElementById("msg").innerHTML = "Password Changed";
           document
@@ -136,14 +126,12 @@ function resetPassword() {
           setTimeout(() => {
             document.getElementById("msgToast").classList.add("hidden");
             document.getElementById("modal-backdrop").classList.add("hidden");
-
             document.getElementById("msgToast").classList.add("hidden");
             window.location.reload();
           }, 2000);
         } else {
           document.getElementById("fpmodal").classList.add("hidden");
           document.getElementById("modal-backdrop").classList.add("hidden");
-
           document.getElementById("msgToast").classList.remove("hidden");
           document.getElementById("msg").innerHTML = request.responseText;
           document
@@ -159,7 +147,6 @@ function resetPassword() {
             document
               .getElementById("modal-backdrop")
               .classList.remove("hidden");
-
             document.getElementById("msgToast").classList.remove("hidden");
           }, 2000);
         }
@@ -171,4 +158,3 @@ function resetPassword() {
     alert("passwords cannot be empty");
   }
 }
-

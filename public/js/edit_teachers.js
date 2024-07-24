@@ -1,6 +1,4 @@
 async function editTeacher(teacher_id) {
-
-
     const first_name = document.getElementById("fname").value;
     const last_name = document.getElementById("lname").value;
     const mobile_number = document.getElementById("mobile_number").value;
@@ -12,7 +10,6 @@ async function editTeacher(teacher_id) {
     const city = document.getElementById("city").value;
     const username = document.getElementById("username").value;
     const position = document.getElementById("position").value;
-    
     const formData = new FormData();
     formData.append("teacher_id",teacher_id);
     formData.append("first_name",first_name);
@@ -25,7 +22,6 @@ async function editTeacher(teacher_id) {
     formData.append("district", district);
     formData.append("city", city);
     formData.append("username", username);
-
     try {
         const response = await fetch ("/controllers/editTeacherController.php", {
             method: "POST",
@@ -50,16 +46,13 @@ async function editTeacher(teacher_id) {
                     document.getElementById("msgToast").classList.add("hidden");
                 }, 2500);
             }
-
         }else{
             throw new Error("Network response was not ok.");
         }
     } catch (error) {
         console.error("Fetch error:", error);
     }
-
 }
-
 function addSubject(teacher_id){
     var e = document.getElementById("position");
     var subject_id = e.options[e.selectedIndex].value;
@@ -86,10 +79,8 @@ if(request.responseText=="success"){
 document.getElementById("subjectUL").append(lli);
 }else{
     document.getElementById("position").classList.add("border-red-500","border");
-
     setTimeout(() => {
     document.getElementById("position").classList.remove("border-red-500","border");
-
 }, 2000);
 }
 }

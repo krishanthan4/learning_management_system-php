@@ -1,14 +1,11 @@
 function editTeacher(id) {
     window.location.href="./edit-teachers?id="+id;
   }
-  
   function deleteTeacher(id) {
     // alert(id);
-  
     const request = new XMLHttpRequest();
     const form = new FormData();
     form.append("teacher_id", id);
-  
     request.onreadystatechange = () => {
       if (request.status == 200 && request.readyState == 4) {
         if (request.responseText == "success") {
@@ -25,7 +22,6 @@ function editTeacher(id) {
             "Something Went wrong";
             setTimeout(() => {
               document.getElementById("msgToast").classList.add("hidden");
-          
             }, 2000);
         }
       }
@@ -33,4 +29,3 @@ function editTeacher(id) {
     request.open("POST","/controllers/deleteTeacherController.php",true);
     request.send(form);
   }
-  

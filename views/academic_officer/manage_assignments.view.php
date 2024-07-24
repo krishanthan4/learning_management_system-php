@@ -6,7 +6,6 @@ $email = $_SESSION["academic_lms"]["email"];
 <div class="w-[95%] mx-4  my-4 flex flex-row items-center">
   <p class="sm:text-xl sm:text-center text-base md:ms-6">Manage Assignments</p>
 </div>
-
 <!-- product table start -->
 <div class="flex flex-col mt-5">
   <div class="-my-2 overflow-x-auto sm:-mx-4 md:-mx-6 lg:mx-1">
@@ -36,13 +35,11 @@ $email = $_SESSION["academic_lms"]["email"];
               </th>
               <th scope="col"
                 class="px-2 md:px-3 py-2 text-center  text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <?php
             require_once "./views/partials/alert.php";
-
             $manageAssignments_rs = Database::search("SELECT `student`.`email`,`student`.`first_name`,`student`.`last_name`,`subject`.`subject`,grade.`name` AS grade,assignment.id,student_has_assignment.marks,student_has_assignment.mark_sent FROM `student_has_assignment`
  INNER JOIN `student` ON `student`.`email`=`student_has_assignment`.`student_email`
   INNER JOIN `class` ON `class`.`id`=`student`.`class_id`
@@ -53,7 +50,6 @@ $email = $_SESSION["academic_lms"]["email"];
               for ($i = 0; $i < $manageAssignments_rs->num_rows; $i++) {
                 $manage_assignments = $manageAssignments_rs->fetch_assoc();
                 ?>
-
                 <tr id="<?= $manage_assignments["email"] ?>">
                   <td class="px-3 py-2 text-center whitespace-nowrap">
                     <div class="text-sm text-gray-900"><?= $manage_assignments["email"] ?></div>
@@ -86,7 +82,6 @@ $email = $_SESSION["academic_lms"]["email"];
                     <?php
                     if ($manage_assignments["mark_sent"] == 0) {
                       ?><button onclick="sentToStudent('<?= $manage_assignments['email'] ?>','<?= $manage_assignments['id'] ?>');" id="sendButton<?= $manage_assignments['email'] ?><?= $manage_assignments['id'] ?>" class="bg-orange-400 text-white py-2 px-2 rounded-md">Send To Student</button><?php
-
                     } else {
                       ?>
                       <button disabled class="bg-green-500 text-white py-2 px-2 rounded-md">Mark Sent</button>
@@ -94,7 +89,6 @@ $email = $_SESSION["academic_lms"]["email"];
                     }
                     ?>
                   </td>
-
                 </tr>
                 <?php
               }
@@ -124,8 +118,6 @@ $email = $_SESSION["academic_lms"]["email"];
             <?php
           }
           ?>
-
-
         </select>
       </div>
       <div class="flex flex-row ms-4 items-center gap-2">
@@ -144,8 +136,6 @@ $email = $_SESSION["academic_lms"]["email"];
             <?php
           }
           ?>
-
-
         </select>
       </div>
       <div class="flex flex-row ms-4 items-center gap-3">
@@ -153,7 +143,6 @@ $email = $_SESSION["academic_lms"]["email"];
         <input type="number" id="marks"
           class=" block  bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none sm:text-sm">
       </div>
-
     </div>
     <div class="w-full flex flex-row mt-4 justify-center">
       <button onclick="assignMarks();" class="mx-auto bg-red-400 rounded-md py-2 px-3 text-white">Save & Send to

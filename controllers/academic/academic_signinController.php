@@ -1,11 +1,8 @@
 <?php
 session_start();
-
 require_once "../../connection.php";
-
 $username = $_POST["username"];
 $password = $_POST["password"];
-
 if (empty($username)) {
     echo "Please Enter Your username";
 } else if (empty($password)) {
